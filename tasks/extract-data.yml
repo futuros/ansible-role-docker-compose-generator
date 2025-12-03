@@ -10,7 +10,7 @@
       }}
   loop: "{{ compose_files }}"
   loop_control:
-    label: "{{ item.src | dirname | basename }}"
+    label: '{{ "%18s %s"|format(item.src | dirname | basename, item.src | basename) }}'
 
 - name: "Save extracted data into a variable (extracted_{{ compose_section }})"
   ansible.builtin.set_fact:
